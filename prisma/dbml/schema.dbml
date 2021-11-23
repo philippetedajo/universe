@@ -1,0 +1,128 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id Int [pk, increment]
+  email String [unique, not null]
+  password String [not null]
+  username String [unique, not null]
+  profile Profile
+  verifiedAt DateTime
+  projects Project [not null]
+  comments Comment [not null]
+  likes Like [not null]
+  notifications Notification [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  following User [not null]
+  followers User [not null]
+}
+
+Table Profile {
+  id Int [pk, increment]
+  avatar String
+  bio String
+  website String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  author User [not null]
+  authorId Int [unique, not null]
+}
+
+Table Project {
+  id String [pk]
+  title String
+  editor_input Json
+  description String
+  thumbnail String
+  views View [not null]
+  comments Comment [not null]
+  likes Like [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table View {
+  id Int [pk, increment]
+  ip String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  project Project [not null]
+  projectId String [not null]
+
+  indexes {
+    (ip, projectId) [unique]
+  }
+}
+
+Table Comment {
+  id Int [pk, increment]
+  message String [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  author User [not null]
+  authorId Int [not null]
+  project Project [not null]
+  projectId String [not null]
+}
+
+Table Like {
+  id Int [pk, increment]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  author User [not null]
+  authorId Int [not null]
+  project Project [not null]
+  projectId String [not null]
+}
+
+Table Notification {
+  id Int [pk, increment]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  source NotificationSource [not null]
+  message String [not null]
+  read Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table VerificationToken {
+  id Int [pk, increment]
+  email String [unique, not null]
+  token String [unique, not null]
+  expiredAt DateTime [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table FollowRelation {
+  followingId Int [ref: > User.id]
+  followersId Int [ref: > User.id]
+}
+
+Enum NotificationSource {
+  comment
+  like
+  follow
+  unfollow
+}
+
+Ref: Profile.authorId - User.id [delete: Cascade]
+
+Ref: Project.authorId > User.id [delete: Cascade]
+
+Ref: View.projectId > Project.id [delete: Cascade]
+
+Ref: Comment.authorId > User.id [delete: Cascade]
+
+Ref: Comment.projectId > Project.id [delete: Cascade]
+
+Ref: Like.authorId > User.id [delete: Cascade]
+
+Ref: Like.projectId > Project.id [delete: Cascade]
+
+Ref: Notification.authorId > User.id [delete: Cascade]

@@ -1,0 +1,78 @@
+{
+  "name": "universal",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "node build/src/index.js",
+    "clean": "rm -rf build",
+    "build": "yarn clean && yarn generate && tsc",
+    "generate": "yarn generate:prisma",
+    "generate:prisma": "prisma generate",
+    "generate:nexus": "ts-node --transpile-only src/schema",
+    "test": "yarn generate && jest",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:migrate": "npx prisma migrate dev --name init",
+    "db:studio": "npx prisma studio",
+    "prod-db:migrate": "prisma migrate deploy",
+    "prod-db:push": "prisma db push"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^8.2.0",
+    "@prisma/client": "^3.2.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jest": "^27.0.1",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^16.10.2",
+    "@types/nodemailer": "^6.4.4",
+    "@types/puppeteer": "^5.4.4",
+    "@types/request-ip": "^0.0.37",
+    "@types/uuid": "^8.3.1",
+    "@types/ws": "^8.2.0",
+    "apollo-server-core": "^3.3.0",
+    "apollo-server-express": "^3.3.0",
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.27.1",
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "graphql": "^15.6.1",
+    "graphql-middleware": "^6.1.7",
+    "graphql-request": "^3.5.0",
+    "graphql-scalars": "^1.10.1",
+    "graphql-shield": "^7.5.0",
+    "graphql-upload": "^12.0.0",
+    "jest": "^27.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "nexus": "^1.1.0",
+    "nodemailer": "^6.7.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.4.0",
+    "prisma": "^3.2.0",
+    "prisma-dbml-generator": "^0.8.1",
+    "puppeteer": "^10.4.0",
+    "request-ip": "^2.1.3",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.0"
+  },
+  "devDependencies": {},
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": {
+          "warnOnly": true
+        }
+      }
+    }
+  }
+}
