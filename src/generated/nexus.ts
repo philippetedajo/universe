@@ -159,9 +159,23 @@ export interface NexusGenObjects {
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     website?: string | null; // String
   }
-  ProfileResponse: { // root type
+  ProfileAvatar: { // root type
+    avatar?: string | null; // String
+    id: number; // Int!
+  }
+  ProfileAvatarResponse: { // root type
     code?: number | null; // Int
-    data?: NexusGenRootTypes['Profile'] | null; // Profile
+    data?: NexusGenRootTypes['ProfileAvatar'] | null; // ProfileAvatar
+    message?: string | null; // String
+  }
+  ProfileInfo: { // root type
+    bio?: string | null; // String
+    id: number; // Int!
+    website?: string | null; // String
+  }
+  ProfileInfoResponse: { // root type
+    code?: number | null; // Int
+    data?: NexusGenRootTypes['ProfileInfo'] | null; // ProfileInfo
     message?: string | null; // String
   }
   Project: { // root type
@@ -305,8 +319,8 @@ export interface NexusGenFieldTypes {
     toggleLikeProject: NexusGenRootTypes['LikeResponse'] | null; // LikeResponse
     unFollowUser: NexusGenRootTypes['UserResponse'] | null; // UserResponse
     updateComment: NexusGenRootTypes['CommentResponse'] | null; // CommentResponse
-    updateProfileAvatar: NexusGenRootTypes['ProfileResponse'] | null; // ProfileResponse
-    updateProfileInfo: NexusGenRootTypes['ProfileResponse'] | null; // ProfileResponse
+    updateProfileAvatar: NexusGenRootTypes['ProfileAvatarResponse'] | null; // ProfileAvatarResponse
+    updateProfileInfo: NexusGenRootTypes['ProfileInfoResponse'] | null; // ProfileInfoResponse
     updateProject: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     updateProjectThumbnail: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     updateUser: NexusGenRootTypes['UserResponse'] | null; // UserResponse
@@ -334,9 +348,23 @@ export interface NexusGenFieldTypes {
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     website: string | null; // String
   }
-  ProfileResponse: { // field return type
+  ProfileAvatar: { // field return type
+    avatar: string | null; // String
+    id: number; // Int!
+  }
+  ProfileAvatarResponse: { // field return type
     code: number | null; // Int
-    data: NexusGenRootTypes['Profile'] | null; // Profile
+    data: NexusGenRootTypes['ProfileAvatar'] | null; // ProfileAvatar
+    message: string | null; // String
+  }
+  ProfileInfo: { // field return type
+    bio: string | null; // String
+    id: number; // Int!
+    website: string | null; // String
+  }
+  ProfileInfoResponse: { // field return type
+    code: number | null; // Int
+    data: NexusGenRootTypes['ProfileInfo'] | null; // ProfileInfo
     message: string | null; // String
   }
   Project: { // field return type
@@ -489,8 +517,8 @@ export interface NexusGenFieldTypeNames {
     toggleLikeProject: 'LikeResponse'
     unFollowUser: 'UserResponse'
     updateComment: 'CommentResponse'
-    updateProfileAvatar: 'ProfileResponse'
-    updateProfileInfo: 'ProfileResponse'
+    updateProfileAvatar: 'ProfileAvatarResponse'
+    updateProfileInfo: 'ProfileInfoResponse'
     updateProject: 'ProjectResponse'
     updateProjectThumbnail: 'ProjectResponse'
     updateUser: 'UserResponse'
@@ -518,9 +546,23 @@ export interface NexusGenFieldTypeNames {
     updatedAt: 'DateTime'
     website: 'String'
   }
-  ProfileResponse: { // field return type name
+  ProfileAvatar: { // field return type name
+    avatar: 'String'
+    id: 'Int'
+  }
+  ProfileAvatarResponse: { // field return type name
     code: 'Int'
-    data: 'Profile'
+    data: 'ProfileAvatar'
+    message: 'String'
+  }
+  ProfileInfo: { // field return type name
+    bio: 'String'
+    id: 'Int'
+    website: 'String'
+  }
+  ProfileInfoResponse: { // field return type name
+    code: 'Int'
+    data: 'ProfileInfo'
     message: 'String'
   }
   Project: { // field return type name

@@ -86,8 +86,8 @@ type Mutation {
   toggleLikeProject(id: String): LikeResponse
   unFollowUser(following_id: Int!): UserResponse
   updateComment(id: Int, message: String): CommentResponse
-  updateProfileAvatar(avatar: Upload, id: Int): ProfileResponse
-  updateProfileInfo(bio: String, id: Int, website: String): ProfileResponse
+  updateProfileAvatar(avatar: Upload, id: Int): ProfileAvatarResponse
+  updateProfileInfo(bio: String, id: Int, website: String): ProfileInfoResponse
   updateProject(description: String, editor_input: JSONObject, id: String, title: String): ProjectResponse
   updateProjectThumbnail(id: String): ProjectResponse
   updateUser(email: String!, id: Int, password: String!, username: String): UserResponse
@@ -126,6 +126,17 @@ type Profile {
   website: String
 }
 
+type ProfileAvatar {
+  avatar: String
+  id: Int!
+}
+
+type ProfileAvatarResponse {
+  code: Int
+  data: ProfileAvatar
+  message: String
+}
+
 input ProfileCreateInput {
   avatar: String
   bio: String
@@ -133,9 +144,15 @@ input ProfileCreateInput {
   website: String
 }
 
-type ProfileResponse {
+type ProfileInfo {
+  bio: String
+  id: Int!
+  website: String
+}
+
+type ProfileInfoResponse {
   code: Int
-  data: Profile
+  data: ProfileInfo
   message: String
 }
 

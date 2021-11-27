@@ -8,7 +8,7 @@ export const ProfileInfoMutation = extendType({
   type: "Mutation",
   definition(t) {
     t.field("updateProfileInfo", {
-      type: "ProfileResponse",
+      type: "ProfileInfoResponse",
       args: {
         id: intArg(),
         bio: stringArg(),
@@ -55,7 +55,7 @@ export const ProfileAvatarMutation = extendType({
   type: "Mutation",
   definition(t) {
     t.field("updateProfileAvatar", {
-      type: "ProfileResponse",
+      type: "ProfileAvatarResponse",
       args: {
         id: intArg(),
         avatar: arg({ type: "Upload" }),
