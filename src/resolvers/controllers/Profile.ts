@@ -4,16 +4,61 @@ import { Response } from "../../_types/Response";
 import { profileSchema } from "../../validation";
 import cloudinary from "../../services/cloudinary";
 
-export const ProfileMutation = extendType({
+export const ProfileInfoMutation = extendType({
   type: "Mutation",
   definition(t) {
-    t.field("updateProfile", {
+    t.field("updateProfileInfo", {
       type: "ProfileResponse",
       args: {
         id: intArg(),
         bio: stringArg(),
-        avatar: arg({ type: "Upload" }),
         website: stringArg(),
+      },
+      resolve: async (parent, args, context: Context) => {
+        try {
+          await profileSchema.validate(args);
+        } catch (err: any) {
+          return {
+            code: Response.FAILURE,
+            message: err.message,
+          };
+        }
+
+        try {
+          const updateProfile = await context.prisma.profile.update({
+            where: { id: Number(args.id) },
+            data: {
+              id: args.id,
+              bio: args.bio,
+              website: args.website,
+            },
+          });
+
+          return {
+            code: Response.SUCCESS,
+            message: "Profile updated successfully !",
+            data: updateProfile,
+          };
+        } catch (err: any) {
+          console.log(err);
+          return {
+            code: Response.FAILURE,
+            message: err.message,
+          };
+        }
+      },
+    });
+  },
+});
+
+export const ProfileAvatarMutation = extendType({
+  type: "Mutation",
+  definition(t) {
+    t.field("updateProfileAvatar", {
+      type: "ProfileResponse",
+      args: {
+        id: intArg(),
+        avatar: arg({ type: "Upload" }),
       },
       resolve: async (parent, args, context: Context) => {
         try {
@@ -51,16 +96,14 @@ export const ProfileMutation = extendType({
             where: { id: Number(args.id) },
             data: {
               id: args.id,
-              bio: args.bio,
               // @ts-ignore
               avatar: result?.secure_url,
-              website: args.website,
             },
           });
 
           return {
             code: Response.SUCCESS,
-            message: "Profile updated successfully !",
+            message: "Profile Avatar updated successfully !",
             data: updateProfile,
           };
         } catch (err: any) {

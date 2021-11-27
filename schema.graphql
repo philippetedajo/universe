@@ -86,7 +86,8 @@ type Mutation {
   toggleLikeProject(id: String): LikeResponse
   unFollowUser(following_id: Int!): UserResponse
   updateComment(id: Int, message: String): CommentResponse
-  updateProfile(avatar: Upload, bio: String, id: Int, website: String): ProfileResponse
+  updateProfileAvatar(avatar: Upload, id: Int): ProfileResponse
+  updateProfileInfo(bio: String, id: Int, website: String): ProfileResponse
   updateProject(description: String, editor_input: JSONObject, id: String, title: String): ProjectResponse
   updateProjectThumbnail(id: String): ProjectResponse
   updateUser(email: String!, id: Int, password: String!, username: String): UserResponse

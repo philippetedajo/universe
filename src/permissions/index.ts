@@ -69,7 +69,8 @@ export const permissions = shield(
       updateComment: and(rules.isAuthenticatedUser, rules.isCommentOwner),
       deleteComment: and(rules.isAuthenticatedUser, rules.isCommentOwner),
 
-      updateProfile: and(rules.isAuthenticatedUser, rules.isProfileOwner),
+      updateProfileInfo: and(rules.isAuthenticatedUser, rules.isProfileOwner),
+      updateProfileAvatar: and(rules.isAuthenticatedUser, rules.isProfileOwner),
 
       updateUser: and(rules.isAuthenticatedUser, rules.isAccountOwner),
 

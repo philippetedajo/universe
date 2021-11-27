@@ -305,7 +305,8 @@ export interface NexusGenFieldTypes {
     toggleLikeProject: NexusGenRootTypes['LikeResponse'] | null; // LikeResponse
     unFollowUser: NexusGenRootTypes['UserResponse'] | null; // UserResponse
     updateComment: NexusGenRootTypes['CommentResponse'] | null; // CommentResponse
-    updateProfile: NexusGenRootTypes['ProfileResponse'] | null; // ProfileResponse
+    updateProfileAvatar: NexusGenRootTypes['ProfileResponse'] | null; // ProfileResponse
+    updateProfileInfo: NexusGenRootTypes['ProfileResponse'] | null; // ProfileResponse
     updateProject: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     updateProjectThumbnail: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     updateUser: NexusGenRootTypes['UserResponse'] | null; // UserResponse
@@ -488,7 +489,8 @@ export interface NexusGenFieldTypeNames {
     toggleLikeProject: 'LikeResponse'
     unFollowUser: 'UserResponse'
     updateComment: 'CommentResponse'
-    updateProfile: 'ProfileResponse'
+    updateProfileAvatar: 'ProfileResponse'
+    updateProfileInfo: 'ProfileResponse'
     updateProject: 'ProjectResponse'
     updateProjectThumbnail: 'ProjectResponse'
     updateUser: 'UserResponse'
@@ -664,8 +666,11 @@ export interface NexusGenArgTypes {
       id?: number | null; // Int
       message?: string | null; // String
     }
-    updateProfile: { // args
+    updateProfileAvatar: { // args
       avatar?: NexusGenScalars['Upload'] | null; // Upload
+      id?: number | null; // Int
+    }
+    updateProfileInfo: { // args
       bio?: string | null; // String
       id?: number | null; // Int
       website?: string | null; // String
