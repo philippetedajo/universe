@@ -67,6 +67,9 @@ export const UsersResponse = createResponse("UsersResponse", "User", true);
 export const ProjectResponse = createResponse("ProjectResponse", "Project");
 // prettier-ignore
 export const ProjectsResponse = createResponse("ProjectsResponse", "Project", true, true);
-export const ProfileResponse = createResponse("ProfileResponse", "Profile");
+// prettier-ignore
+export const ProfileInfoResponse = createResponse("ProfileInfoResponse", "ProfileInfo");
+// prettier-ignore
+export const ProfileAvatarResponse = createResponse("ProfileAvatarResponse", "ProfileAvatar");
 export const LikeResponse = createResponse("LikeResponse", "Like");
 export const CommentResponse = createResponse("CommentResponse", "Comment");

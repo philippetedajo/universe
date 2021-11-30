@@ -1,4 +1,5 @@
 import { objectType } from "nexus";
+import { Context } from "../context";
 
 export const UserPayload = objectType({
   name: "UserCountPayload",
@@ -22,5 +23,22 @@ export const ExistencePayload = objectType({
   name: "ExistencePayload",
   definition(t) {
     t.boolean("exist");
+  },
+});
+
+export const ProfileInfo = objectType({
+  name: "ProfileInfo",
+  definition(t) {
+    t.nonNull.int("id");
+    t.string("bio");
+    t.string("website");
+  },
+});
+
+export const ProfileAvatar = objectType({
+  name: "ProfileAvatar",
+  definition(t) {
+    t.nonNull.int("id");
+    t.string("avatar");
   },
 });
