@@ -5,7 +5,7 @@ export const screenShoot = async (id: string) => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   // set params here before open headless browser
-  await page.goto(`http://localhost:3000/live-preview/${id}`);
+  await page.goto(`${process.env.APP_URL}/live-preview/${id}`);
 
   await page.waitForSelector(`.ready-to-screen-${id}`, {
     visible: true,

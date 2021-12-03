@@ -13,7 +13,7 @@ export async function sendMail(email: string, url: string) {
 
   // send mail with defined transport object
   await transporter.sendMail({
-    from: '"Codetree 👻" <Codetree@codetree.io>', // sender address
+    from: '"Codetree 👻" <codetreeorg@gmail.com>', // sender address
     to: email, // list of receivers
     subject: "Codetree", // Subject line
     text: "Codetree notification", // plain text body
