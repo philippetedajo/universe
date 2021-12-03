@@ -13,7 +13,6 @@ export const screenShoot = async (id: string) => {
   });
 
   const thumbnail = await page.screenshot({
-    path: `thumbnail-${id}.png`,
     encoding: "binary",
   });
   await browser.close();
