@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 import cloudinary from "./cloudinary";
 
 export const screenShoot = async (id: string) => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   // set params here before open headless browser
   await page.goto(`http://localhost:3000/live-preview/${id}`);
