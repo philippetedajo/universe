@@ -3,7 +3,8 @@ import cloudinary from "./cloudinary";
 
 export const screenShoot = async (id: string) => {
   const browser = await puppeteer.launch({
-    ignoreDefaultArgs: ["--disable-extensions"],
+    headless: true,
+    ignoreDefaultArgs: ["--no-sandbox"],
   });
   const page = await browser.newPage();
   // set params here before open headless browser
