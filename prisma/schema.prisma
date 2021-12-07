@@ -75,6 +75,11 @@ model Comment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  parentId Int?
+  parent   Comment? @relation(fields: [parentId], references: [id], name: "comment_parent")
+
+  children Comment[] @relation(name: "comment_parent")
+
   author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId Int
 
