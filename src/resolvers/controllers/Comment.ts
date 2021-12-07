@@ -66,8 +66,6 @@ export const CommentMutation = extendType({
         try {
           const comment = await context.prisma.comment.create({
             data: {
-              // @ts-ignore
-              projectId: args.parentId,
               message: args.message,
               author: { connect: { id: Number(userId) } },
               project: { connect: { id: args.id } },
