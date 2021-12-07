@@ -65,7 +65,7 @@ Table Comment {
   updatedAt DateTime [not null]
   parentId Int
   parent Comment
-  children Comment [not null]
+  childrens Comment [not null]
   author User [not null]
   authorId Int [not null]
   project Project [not null]
