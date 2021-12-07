@@ -400,6 +400,7 @@ export interface NexusGenFieldTypes {
     me: NexusGenRootTypes['UserResponse'] | null; // UserResponse
     myProjects: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
     project: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
+    projectPreview: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     projects: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
     projectsByUsername: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
     user: NexusGenRootTypes['UserResponse'] | null; // UserResponse
@@ -598,6 +599,7 @@ export interface NexusGenFieldTypeNames {
     me: 'UserResponse'
     myProjects: 'ProjectsResponse'
     project: 'ProjectResponse'
+    projectPreview: 'ProjectResponse'
     projects: 'ProjectsResponse'
     projectsByUsername: 'ProjectsResponse'
     user: 'UserResponse'
@@ -743,6 +745,9 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenInputs['ProjectOrderByInput'] | null; // ProjectOrderByInput
     }
     project: { // args
+      id?: string | null; // String
+    }
+    projectPreview: { // args
       id?: string | null; // String
     }
     projects: { // args

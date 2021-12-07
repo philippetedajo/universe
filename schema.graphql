@@ -203,6 +203,7 @@ type Query {
   me: UserResponse
   myProjects(after: String, first: Int, orderBy: ProjectOrderByInput): ProjectsResponse
   project(id: String): ProjectResponse
+  projectPreview(id: String): ProjectResponse
   projects(after: String, first: Int, orderBy: ProjectOrderByInput): ProjectsResponse
   projectsByUsername(after: String, first: Int, orderBy: ProjectOrderByInput, username: String): ProjectsResponse
   user(username: String): UserResponse
