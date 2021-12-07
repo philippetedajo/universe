@@ -8,27 +8,6 @@ const expDate = new Date(new Date().setHours(new Date().getHours() + 2)); // 2 h
 
 const userData: Prisma.UserCreateInput[] = [
   {
-    username: "Mario",
-    email: "mario@kart.com",
-    verifiedAt: date,
-    password: "$2a$10$KwadqibaZsHdutG.1L8UcOqFK9.PGbgO2tRHZX602CkotjVN/llxy", // password
-    projects: {
-      create: [
-        {
-          title: "3d graph",
-          editor_input: treeTemplates._typescript,
-          description: "the beautiful 3d graph",
-        },
-      ],
-    },
-    profile: {
-      create: {
-        avatar:
-          "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d936d8103206343.5f47cc17b689a.png",
-      },
-    },
-  },
-  {
     username: "Yoshi",
     email: "yoshi@kart.com",
     verifiedAt: date,
