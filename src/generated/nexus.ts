@@ -270,7 +270,7 @@ export interface NexusGenFieldTypes {
   }
   Comment: { // field return type
     author: NexusGenRootTypes['User']; // User!
-    childrens: NexusGenRootTypes['Comment'][]; // [Comment!]!
+    children: NexusGenRootTypes['Comment'][]; // [Comment!]!
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
     message: string; // String!
@@ -472,7 +472,7 @@ export interface NexusGenFieldTypeNames {
   }
   Comment: { // field return type name
     author: 'User'
-    childrens: 'Comment'
+    children: 'Comment'
     createdAt: 'DateTime'
     id: 'Int'
     message: 'String'

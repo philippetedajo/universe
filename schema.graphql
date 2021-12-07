@@ -11,7 +11,7 @@ type AuthResponse {
 
 type Comment {
   author: User!
-  childrens: [Comment!]!
+  children: [Comment!]!
   createdAt: DateTime!
   id: Int!
   message: String!
