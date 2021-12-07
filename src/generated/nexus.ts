@@ -674,7 +674,6 @@ export interface NexusGenArgTypes {
       username?: string | null; // String
     }
     createChildComment: { // args
-      id?: string | null; // String
       message?: string | null; // String
       parentId?: number | null; // Int
     }

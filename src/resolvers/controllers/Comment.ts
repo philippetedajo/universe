@@ -50,7 +50,7 @@ export const CommentMutation = extendType({
     //======================================================================================
     t.field("createChildComment", {
       type: "CommentResponse",
-      args: { id: stringArg(), parentId: intArg(), message: stringArg() },
+      args: { parentId: intArg(), message: stringArg() },
       resolve: async (parent, args, context: Context) => {
         try {
           await commentSchema.validate(args);
@@ -70,7 +70,6 @@ export const CommentMutation = extendType({
               parentId: args.parentId,
               message: args.message,
               author: { connect: { id: Number(userId) } },
-              project: { connect: { id: args.id } },
             },
           });
 
