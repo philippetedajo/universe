@@ -95,6 +95,38 @@ export const ProjectQuery = extendType({
       },
     });
 
+    t.field("projectPreview", {
+      type: "ProjectResponse",
+      args: { id: stringArg() },
+      resolve: async (parent, args, context: Context) => {
+        const project = await context.prisma.project.findUnique({
+          where: { id: args.id },
+          include: {
+            _count: {
+              select: {
+                likes: true,
+                comments: true,
+                views: true,
+              },
+            },
+          },
+        });
+
+        if (!project) {
+          return {
+            code: Response.FAILURE,
+            message: "Project not found",
+            data: project,
+          };
+        }
+        return {
+          code: Response.SUCCESS,
+          message: "Project found successfully !",
+          data: project,
+        };
+      },
+    });
+
     t.field("myProjects", {
       type: "ProjectsResponse",
       args: {
