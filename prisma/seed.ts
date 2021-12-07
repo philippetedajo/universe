@@ -53,11 +53,6 @@ const userData: Prisma.UserCreateInput[] = [
 
 const verificationTokenData: Prisma.VerificationTokenCreateInput[] = [
   {
-    email: "mario@kart.com",
-    token: "ad937724-c1a8-451d-a143-9bcb0171141d",
-    expiredAt: expDate,
-  },
-  {
     email: "yoshi@kart.com",
     token: "fa2cfc1f-64c3-4602-a6bb-264fabfe1007",
     expiredAt: expDate,
