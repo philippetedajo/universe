@@ -109,6 +109,7 @@ export interface NexusGenObjects {
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
     message: string; // String!
+    parentId?: number | null; // Int
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   CommentResponse: { // root type
@@ -269,10 +270,12 @@ export interface NexusGenFieldTypes {
   }
   Comment: { // field return type
     author: NexusGenRootTypes['User']; // User!
+    children: NexusGenRootTypes['Comment'][]; // [Comment!]!
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
     message: string; // String!
-    project: NexusGenRootTypes['Project']; // Project!
+    parentId: number | null; // Int
+    project: NexusGenRootTypes['Project'] | null; // Project
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   CommentResponse: { // field return type
@@ -307,6 +310,7 @@ export interface NexusGenFieldTypes {
   Mutation: { // field return type
     checkEmail: NexusGenRootTypes['ExistenceResponse'] | null; // ExistenceResponse
     checkUsername: NexusGenRootTypes['ExistenceResponse'] | null; // ExistenceResponse
+    createChildComment: NexusGenRootTypes['CommentResponse'] | null; // CommentResponse
     createComment: NexusGenRootTypes['CommentResponse'] | null; // CommentResponse
     createProject: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     deleteComment: NexusGenRootTypes['CommentResponse'] | null; // CommentResponse
@@ -468,9 +472,11 @@ export interface NexusGenFieldTypeNames {
   }
   Comment: { // field return type name
     author: 'User'
+    children: 'Comment'
     createdAt: 'DateTime'
     id: 'Int'
     message: 'String'
+    parentId: 'Int'
     project: 'Project'
     updatedAt: 'DateTime'
   }
@@ -506,6 +512,7 @@ export interface NexusGenFieldTypeNames {
   Mutation: { // field return type name
     checkEmail: 'ExistenceResponse'
     checkUsername: 'ExistenceResponse'
+    createChildComment: 'CommentResponse'
     createComment: 'CommentResponse'
     createProject: 'ProjectResponse'
     deleteComment: 'CommentResponse'
@@ -665,6 +672,10 @@ export interface NexusGenArgTypes {
     }
     checkUsername: { // args
       username?: string | null; // String
+    }
+    createChildComment: { // args
+      message?: string | null; // String
+      parentId?: number | null; // Int
     }
     createComment: { // args
       id?: string | null; // String

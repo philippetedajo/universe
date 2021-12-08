@@ -47,6 +47,47 @@ export const CommentMutation = extendType({
       },
     });
 
+    t.field("createChildComment", {
+      type: "CommentResponse",
+      args: { parentId: intArg(), message: stringArg() },
+      resolve: async (parent, args, context: Context) => {
+        try {
+          await commentSchema.validate(args);
+        } catch (err: any) {
+          return {
+            code: Response.FAILURE,
+            message: err.message,
+          };
+        }
+
+        const userId = getUserId(context);
+
+        try {
+          const comment = await context.prisma.comment.create({
+            data: {
+              parent: { connect: { id: args.parentId } },
+              message: args.message,
+              author: { connect: { id: Number(userId) } },
+            },
+          });
+
+          return {
+            code: Response.SUCCESS,
+            message: "Comment created successfully !",
+            data: comment,
+          };
+        } catch (err: any) {
+          if (err.code === "P2025") {
+            return {
+              code: Response.FAILURE,
+              message: `No parent comment was found for create comment !`,
+            };
+          }
+          console.log(err.message);
+        }
+      },
+    });
+
     t.field("updateComment", {
       type: "CommentResponse",
       args: { id: intArg(), message: stringArg() },

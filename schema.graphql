@@ -11,10 +11,12 @@ type AuthResponse {
 
 type Comment {
   author: User!
+  children: [Comment!]!
   createdAt: DateTime!
   id: Int!
   message: String!
-  project: Project!
+  parentId: Int
+  project: Project
   updatedAt: DateTime!
 }
 
@@ -74,6 +76,7 @@ type LikeResponse {
 type Mutation {
   checkEmail(email: String!): ExistenceResponse
   checkUsername(username: String): ExistenceResponse
+  createChildComment(message: String, parentId: Int): CommentResponse
   createComment(id: String, message: String): CommentResponse
   createProject(description: String, editor_input: JSONObject, title: String): ProjectResponse
   deleteComment(id: Int): CommentResponse

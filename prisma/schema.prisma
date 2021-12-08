@@ -75,11 +75,16 @@ model Comment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  parentId Int?
+  parent   Comment? @relation(fields: [parentId], references: [id], name: "comment_parent")
+
+  childrens Comment[] @relation(name: "comment_parent")
+
   author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId Int
 
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  projectId String
+  project   Project? @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId String?
 }
 
 model Like {
