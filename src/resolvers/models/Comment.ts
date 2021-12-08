@@ -21,7 +21,7 @@ export const Comment = objectType({
       },
     });
 
-    t.nonNull.field("project", {
+    t.field("project", {
       type: "Project",
       resolve: (parent, args, context: Context) => {
         return context.prisma.comment

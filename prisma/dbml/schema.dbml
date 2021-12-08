@@ -68,8 +68,8 @@ Table Comment {
   childrens Comment [not null]
   author User [not null]
   authorId Int [not null]
-  project Project [not null]
-  projectId String [not null]
+  project Project
+  projectId String
 }
 
 Table Like {

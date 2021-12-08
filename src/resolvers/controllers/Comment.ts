@@ -47,7 +47,6 @@ export const CommentMutation = extendType({
       },
     });
 
-    //======================================================================================
     t.field("createChildComment", {
       type: "CommentResponse",
       args: { parentId: intArg(), message: stringArg() },
@@ -65,9 +64,8 @@ export const CommentMutation = extendType({
 
         try {
           const comment = await context.prisma.comment.create({
-            // @ts-ignore
             data: {
-              parentId: args.parentId,
+              parent: { connect: { id: args.parentId } },
               message: args.message,
               author: { connect: { id: Number(userId) } },
             },
@@ -82,13 +80,13 @@ export const CommentMutation = extendType({
           if (err.code === "P2025") {
             return {
               code: Response.FAILURE,
-              message: `No project was found for create comment !`,
+              message: `No parent comment was found for create comment !`,
             };
           }
+          console.log(err.message);
         }
       },
     });
-    //======================================================================================
 
     t.field("updateComment", {
       type: "CommentResponse",

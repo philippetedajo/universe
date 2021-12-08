@@ -60,7 +60,7 @@ CREATE TABLE "Comment" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "parentId" INTEGER,
     "authorId" INTEGER NOT NULL,
-    "projectId" TEXT NOT NULL,
+    "projectId" TEXT,
 
     CONSTRAINT "Comment_pkey" PRIMARY KEY ("id")
 );

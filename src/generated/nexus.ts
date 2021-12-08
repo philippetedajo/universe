@@ -275,7 +275,7 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     message: string; // String!
     parentId: number | null; // Int
-    project: NexusGenRootTypes['Project']; // Project!
+    project: NexusGenRootTypes['Project'] | null; // Project
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
   CommentResponse: { // field return type

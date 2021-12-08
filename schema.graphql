@@ -16,7 +16,7 @@ type Comment {
   id: Int!
   message: String!
   parentId: Int
-  project: Project!
+  project: Project
   updatedAt: DateTime!
 }
 
