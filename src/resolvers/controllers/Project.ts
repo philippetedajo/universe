@@ -5,7 +5,7 @@ import { getUserId } from "../../utils";
 import { projectSchema } from "../../validation";
 import { Response } from "../../_types/Response";
 import { createPagination } from "../../utils";
-import { screenShoot } from "../../services";
+import { prisma, screenShoot } from "../../services";
 
 export const ProjectQuery = extendType({
   type: "Query",
@@ -161,22 +161,14 @@ export const ProjectQuery = extendType({
     });
 
     t.field("projectsByUsername", {
-      type: "ProjectsResponse",
+      type: "ProjectsByUsernameResponse",
       args: {
         username: stringArg(),
-        first: intArg(),
-        after: stringArg(),
-        orderBy: arg({
-          type: "ProjectOrderByInput",
-        }),
       },
       resolve: async (parent, args, context: Context) => {
         try {
-          return createPagination(context.prisma.project, args, "Project", {
+          const projects = await context.prisma.project.findMany({
             where: { author: { username: args.username } },
-            orderBy: {
-              createdAt: args.orderBy.createdAt,
-            },
             include: {
               _count: {
                 select: {
@@ -187,6 +179,12 @@ export const ProjectQuery = extendType({
               },
             },
           });
+
+          return {
+            code: Response.SUCCESS,
+            message: "Projects found successfully !",
+            data: projects,
+          };
         } catch (err) {
           console.log(err);
         }

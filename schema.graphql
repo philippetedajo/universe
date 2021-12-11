@@ -195,6 +195,12 @@ type ProjectResponse {
   message: String
 }
 
+type ProjectsByUsernameResponse {
+  code: Int
+  data: [Project]
+  message: String
+}
+
 type ProjectsResponse {
   code: Int
   edges: [Edge]
@@ -208,7 +214,7 @@ type Query {
   project(id: String): ProjectResponse
   projectPreview(id: String): ProjectResponse
   projects(after: String, first: Int, orderBy: ProjectOrderByInput): ProjectsResponse
-  projectsByUsername(after: String, first: Int, orderBy: ProjectOrderByInput, username: String): ProjectsResponse
+  projectsByUsername(username: String): ProjectsByUsernameResponse
   user(username: String): UserResponse
   users: UsersResponse
 }

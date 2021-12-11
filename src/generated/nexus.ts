@@ -199,6 +199,11 @@ export interface NexusGenObjects {
     data?: NexusGenRootTypes['Project'] | null; // Project
     message?: string | null; // String
   }
+  ProjectsByUsernameResponse: { // root type
+    code?: number | null; // Int
+    data?: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
+    message?: string | null; // String
+  }
   ProjectsResponse: { // root type
     code?: number | null; // Int
     edges?: Array<NexusGenRootTypes['Edge'] | null> | null; // [Edge]
@@ -394,6 +399,11 @@ export interface NexusGenFieldTypes {
     data: NexusGenRootTypes['Project'] | null; // Project
     message: string | null; // String
   }
+  ProjectsByUsernameResponse: { // field return type
+    code: number | null; // Int
+    data: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
+    message: string | null; // String
+  }
   ProjectsResponse: { // field return type
     code: number | null; // Int
     edges: Array<NexusGenRootTypes['Edge'] | null> | null; // [Edge]
@@ -406,7 +416,7 @@ export interface NexusGenFieldTypes {
     project: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     projectPreview: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     projects: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
-    projectsByUsername: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
+    projectsByUsername: NexusGenRootTypes['ProjectsByUsernameResponse'] | null; // ProjectsByUsernameResponse
     user: NexusGenRootTypes['UserResponse'] | null; // UserResponse
     users: NexusGenRootTypes['UsersResponse'] | null; // UsersResponse
   }
@@ -596,6 +606,11 @@ export interface NexusGenFieldTypeNames {
     data: 'Project'
     message: 'String'
   }
+  ProjectsByUsernameResponse: { // field return type name
+    code: 'Int'
+    data: 'Project'
+    message: 'String'
+  }
   ProjectsResponse: { // field return type name
     code: 'Int'
     edges: 'Edge'
@@ -608,7 +623,7 @@ export interface NexusGenFieldTypeNames {
     project: 'ProjectResponse'
     projectPreview: 'ProjectResponse'
     projects: 'ProjectsResponse'
-    projectsByUsername: 'ProjectsResponse'
+    projectsByUsername: 'ProjectsByUsernameResponse'
     user: 'UserResponse'
     users: 'UsersResponse'
   }
@@ -767,9 +782,6 @@ export interface NexusGenArgTypes {
       orderBy?: NexusGenInputs['ProjectOrderByInput'] | null; // ProjectOrderByInput
     }
     projectsByUsername: { // args
-      after?: string | null; // String
-      first?: number | null; // Int
-      orderBy?: NexusGenInputs['ProjectOrderByInput'] | null; // ProjectOrderByInput
       username?: string | null; // String
     }
     user: { // args
