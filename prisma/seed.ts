@@ -15,9 +15,28 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
-          title: "colorful parallax",
+          title: "colorful parallax1",
           editor_input: treeTemplates._vanilla,
           description: "how to create colorful parallax",
+          createdAt: new Date(),
+        },
+        {
+          title: "colorful parallax2",
+          editor_input: treeTemplates._vanilla,
+          description: "how to create colorful parallax",
+          createdAt: new Date(),
+        },
+        {
+          title: "colorful parallax3",
+          editor_input: treeTemplates._vanilla,
+          description: "how to create colorful parallax",
+          createdAt: new Date(),
+        },
+        {
+          title: "colorful parallax4",
+          editor_input: treeTemplates._vanilla,
+          description: "how to create colorful parallax",
+          createdAt: new Date(),
         },
       ],
     },
@@ -36,9 +55,64 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
-          title: "like-lunchroom",
+          title: "like-lunchroom-1",
           editor_input: treeTemplates._react,
           description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-2",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-3",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-4",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-5",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-6",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-7",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-8",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-9",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
+        },
+        {
+          title: "like-lunchroom-10",
+          editor_input: treeTemplates._react,
+          description: "lets build a lunchroom",
+          createdAt: new Date(),
         },
       ],
     },
