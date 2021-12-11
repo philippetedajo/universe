@@ -15,28 +15,18 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
-          title: "colorful parallax1",
+          title: "colorful-parallax",
           editor_input: treeTemplates._vanilla,
           description: "how to create colorful parallax",
-          createdAt: new Date(),
+          thumbnail:
+            "https://cdn.dribbble.com/users/372/screenshots/13954804/media/ecb44e020eb98f4c3640777dea080c26.jpg?compress=1&resize=1600x1200",
         },
         {
-          title: "colorful parallax2",
-          editor_input: treeTemplates._vanilla,
-          description: "how to create colorful parallax",
-          createdAt: new Date(),
-        },
-        {
-          title: "colorful parallax3",
-          editor_input: treeTemplates._vanilla,
-          description: "how to create colorful parallax",
-          createdAt: new Date(),
-        },
-        {
-          title: "colorful parallax4",
-          editor_input: treeTemplates._vanilla,
-          description: "how to create colorful parallax",
-          createdAt: new Date(),
+          title: "moon-light",
+          editor_input: treeTemplates._typescript,
+          description: "a great moon",
+          thumbnail:
+            "https://cdn.dribbble.com/users/372/screenshots/13954804/media/ecb44e020eb98f4c3640777dea080c26.jpg?compress=1&resize=1600x1200",
         },
       ],
     },
@@ -55,64 +45,25 @@ const userData: Prisma.UserCreateInput[] = [
     projects: {
       create: [
         {
-          title: "like-lunchroom-1",
+          title: "like-lunchroom",
           editor_input: treeTemplates._react,
           description: "lets build a lunchroom",
-          createdAt: new Date(),
+          thumbnail:
+            "https://cdn.dribbble.com/users/372/screenshots/13954804/media/ecb44e020eb98f4c3640777dea080c26.jpg?compress=1&resize=1600x1200",
         },
         {
-          title: "like-lunchroom-2",
+          title: "potato",
           editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
+          description: "whats a potato",
+          thumbnail:
+            "https://cdn.dribbble.com/users/372/screenshots/13954804/media/ecb44e020eb98f4c3640777dea080c26.jpg?compress=1&resize=1600x1200",
         },
         {
-          title: "like-lunchroom-3",
+          title: "pringles-valley",
           editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-4",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-5",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-6",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-7",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-8",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-9",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
-        },
-        {
-          title: "like-lunchroom-10",
-          editor_input: treeTemplates._react,
-          description: "lets build a lunchroom",
-          createdAt: new Date(),
+          description: "with pringles and chips",
+          thumbnail:
+            "https://cdn.dribbble.com/users/372/screenshots/13954804/media/ecb44e020eb98f4c3640777dea080c26.jpg?compress=1&resize=1600x1200",
         },
       ],
     },
