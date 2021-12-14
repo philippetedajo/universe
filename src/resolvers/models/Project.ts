@@ -25,6 +25,10 @@ export const Project = objectType({
       },
     });
 
+    // t.nonNull.list.nonNull.field("tagOnProjects", {
+    //   type: ""
+    // });
+
     t.nonNull.list.nonNull.field("comments", {
       type: "Comment",
       resolve: (parent, args, context: Context) => {

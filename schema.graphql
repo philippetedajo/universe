@@ -236,6 +236,21 @@ enum SortOrder {
   desc
 }
 
+type Tag {
+  createdAt: DateTime!
+  id: Int!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type TagOnProject {
+  assignedBy: String!
+  createdAt: DateTime!
+  project: Project!
+  tag: Tag!
+  updatedAt: DateTime!
+}
+
 """The `Upload` scalar type represents a file upload."""
 scalar Upload
 

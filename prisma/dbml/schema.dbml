@@ -39,7 +39,7 @@ Table Project {
   views View [not null]
   comments Comment [not null]
   likes Like [not null]
-  TagOnProjects TagOnProject [not null]
+  tagOnProjects TagOnProject [not null]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
   author User [not null]
@@ -49,7 +49,7 @@ Table Project {
 Table Tag {
   id Int [pk, increment]
   title String [not null]
-  TagOnProject TagOnProject [not null]
+  tagOnProjects TagOnProject [not null]
   createdAt DateTime [default: `now()`, not null]
   updatedAt DateTime [not null]
 }

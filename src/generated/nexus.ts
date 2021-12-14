@@ -220,6 +220,17 @@ export interface NexusGenObjects {
     projectSearch: Array<NexusGenRootTypes['Project'] | null>; // [Project]!
     userSearch: Array<NexusGenRootTypes['User'] | null>; // [User]!
   }
+  Tag: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  TagOnProject: { // root type
+    assignedBy: string; // String!
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
   User: { // root type
     _count?: NexusGenRootTypes['UserCountPayload'] | null; // UserCountPayload
     createdAt: NexusGenScalars['DateTime']; // DateTime!
@@ -439,6 +450,19 @@ export interface NexusGenFieldTypes {
     projectSearch: Array<NexusGenRootTypes['Project'] | null>; // [Project]!
     userSearch: Array<NexusGenRootTypes['User'] | null>; // [User]!
   }
+  Tag: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    id: number; // Int!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  TagOnProject: { // field return type
+    assignedBy: string; // String!
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    project: NexusGenRootTypes['Project']; // Project!
+    tag: NexusGenRootTypes['Tag']; // Tag!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
   User: { // field return type
     _count: NexusGenRootTypes['UserCountPayload'] | null; // UserCountPayload
     comments: NexusGenRootTypes['Comment'][]; // [Comment!]!
@@ -655,6 +679,19 @@ export interface NexusGenFieldTypeNames {
   SearchResult: { // field return type name
     projectSearch: 'Project'
     userSearch: 'User'
+  }
+  Tag: { // field return type name
+    createdAt: 'DateTime'
+    id: 'Int'
+    title: 'String'
+    updatedAt: 'DateTime'
+  }
+  TagOnProject: { // field return type name
+    assignedBy: 'String'
+    createdAt: 'DateTime'
+    project: 'Project'
+    tag: 'Tag'
+    updatedAt: 'DateTime'
   }
   User: { // field return type name
     _count: 'UserCountPayload'
