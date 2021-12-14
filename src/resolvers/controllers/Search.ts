@@ -22,6 +22,9 @@ export const Search = extendType({
 
           const users = await context.prisma.user.findMany({
             where: {
+              NOT: {
+                verifiedAt: null,
+              },
               username: {
                 search: args.term,
               },
