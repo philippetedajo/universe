@@ -25,6 +25,7 @@ function createResponse(
       t.boolean("hasNextPage");
     },
   });
+
   //===
 
   return objectType({
@@ -70,8 +71,12 @@ export const ProjectsResponse = createResponse("ProjectsResponse", "Project", tr
 // prettier-ignore
 export const ProjectsByUsernameResponse = createResponse("ProjectsByUsernameResponse", "Project", true);
 // prettier-ignore
+export const SearchResponse = createResponse("SearchResponse", "SearchResult");
+// prettier-ignore
 export const ProfileInfoResponse = createResponse("ProfileInfoResponse", "ProfileInfo");
 // prettier-ignore
 export const ProfileAvatarResponse = createResponse("ProfileAvatarResponse", "ProfileAvatar");
 export const LikeResponse = createResponse("LikeResponse", "Like");
 export const CommentResponse = createResponse("CommentResponse", "Comment");
+// prettier-ignore
+export const ProjectsListResponse = createResponse("ProjectsListResponse", "Project", true);

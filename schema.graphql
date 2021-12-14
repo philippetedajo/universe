@@ -201,6 +201,12 @@ type ProjectsByUsernameResponse {
   message: String
 }
 
+type ProjectsListResponse {
+  code: Int
+  data: [Project]
+  message: String
+}
+
 type ProjectsResponse {
   code: Int
   edges: [Edge]
@@ -215,8 +221,20 @@ type Query {
   projectPreview(id: String): ProjectResponse
   projects(after: String, first: Int, orderBy: ProjectOrderByInput): ProjectsResponse
   projectsByUsername(username: String): ProjectsByUsernameResponse
+  search(term: String): SearchResponse
   user(username: String): UserResponse
   users: UsersResponse
+}
+
+type SearchResponse {
+  code: Int
+  data: SearchResult
+  message: String
+}
+
+type SearchResult {
+  projectSearch: [Project]!
+  userSearch: [User]!
 }
 
 enum SortOrder {

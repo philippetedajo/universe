@@ -5,7 +5,7 @@ import { getUserId } from "../../utils";
 import { projectSchema } from "../../validation";
 import { Response } from "../../_types/Response";
 import { createPagination } from "../../utils";
-import { prisma, screenShoot } from "../../services";
+import { screenShoot } from "../../services";
 
 export const ProjectQuery = extendType({
   type: "Query",
