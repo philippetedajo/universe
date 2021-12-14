@@ -204,6 +204,11 @@ export interface NexusGenObjects {
     data?: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
     message?: string | null; // String
   }
+  ProjectsListResponse: { // root type
+    code?: number | null; // Int
+    data?: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
+    message?: string | null; // String
+  }
   ProjectsResponse: { // root type
     code?: number | null; // Int
     edges?: Array<NexusGenRootTypes['Edge'] | null> | null; // [Edge]
@@ -405,6 +410,7 @@ export interface NexusGenFieldTypes {
     editor_input: NexusGenScalars['JSONObject'] | null; // JSONObject
     id: string; // String!
     likes: NexusGenRootTypes['Like'][]; // [Like!]!
+    tagOnProjects: NexusGenRootTypes['TagOnProject'][]; // [TagOnProject!]!
     thumbnail: string | null; // String
     title: string | null; // String
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
@@ -420,6 +426,11 @@ export interface NexusGenFieldTypes {
     message: string | null; // String
   }
   ProjectsByUsernameResponse: { // field return type
+    code: number | null; // Int
+    data: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
+    message: string | null; // String
+  }
+  ProjectsListResponse: { // field return type
     code: number | null; // Int
     data: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
     message: string | null; // String
@@ -453,6 +464,7 @@ export interface NexusGenFieldTypes {
   Tag: { // field return type
     createdAt: NexusGenScalars['DateTime']; // DateTime!
     id: number; // Int!
+    tagOnProjects: NexusGenRootTypes['TagOnProject'][]; // [TagOnProject!]!
     title: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
   }
@@ -635,6 +647,7 @@ export interface NexusGenFieldTypeNames {
     editor_input: 'JSONObject'
     id: 'String'
     likes: 'Like'
+    tagOnProjects: 'TagOnProject'
     thumbnail: 'String'
     title: 'String'
     updatedAt: 'DateTime'
@@ -650,6 +663,11 @@ export interface NexusGenFieldTypeNames {
     message: 'String'
   }
   ProjectsByUsernameResponse: { // field return type name
+    code: 'Int'
+    data: 'Project'
+    message: 'String'
+  }
+  ProjectsListResponse: { // field return type name
     code: 'Int'
     data: 'Project'
     message: 'String'
@@ -683,6 +701,7 @@ export interface NexusGenFieldTypeNames {
   Tag: { // field return type name
     createdAt: 'DateTime'
     id: 'Int'
+    tagOnProjects: 'TagOnProject'
     title: 'String'
     updatedAt: 'DateTime'
   }

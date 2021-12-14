@@ -25,9 +25,17 @@ export const Project = objectType({
       },
     });
 
-    // t.nonNull.list.nonNull.field("tagOnProjects", {
-    //   type: ""
-    // });
+    t.nonNull.list.nonNull.field("tagOnProjects", {
+      // @ts-ignore
+      type: "TagOnProject",
+      resolve: (parent, args, context: Context) => {
+        return context.prisma.project
+          .findUnique({
+            where: { id: parent.id || undefined },
+          })
+          .tagOnProjects();
+      },
+    });
 
     t.nonNull.list.nonNull.field("comments", {
       type: "Comment",

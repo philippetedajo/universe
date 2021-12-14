@@ -168,6 +168,7 @@ type Project {
   editor_input: JSONObject
   id: String!
   likes: [Like!]!
+  tagOnProjects: [TagOnProject!]!
   thumbnail: String
   title: String
   updatedAt: DateTime!
@@ -196,6 +197,12 @@ type ProjectResponse {
 }
 
 type ProjectsByUsernameResponse {
+  code: Int
+  data: [Project]
+  message: String
+}
+
+type ProjectsListResponse {
   code: Int
   data: [Project]
   message: String
@@ -239,6 +246,7 @@ enum SortOrder {
 type Tag {
   createdAt: DateTime!
   id: Int!
+  tagOnProjects: [TagOnProject!]!
   title: String!
   updatedAt: DateTime!
 }
