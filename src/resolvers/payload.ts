@@ -42,3 +42,11 @@ export const ProfileAvatar = objectType({
     t.string("avatar");
   },
 });
+
+export const SearchPayload = objectType({
+  name: "SearchResult",
+  definition(t) {
+    t.nonNull.list.field("projectSearch", { type: "Project" });
+    t.nonNull.list.field("userSearch", { type: "User" });
+  },
+});

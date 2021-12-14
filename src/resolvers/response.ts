@@ -25,6 +25,7 @@ function createResponse(
       t.boolean("hasNextPage");
     },
   });
+
   //===
 
   return objectType({
@@ -69,6 +70,8 @@ export const ProjectResponse = createResponse("ProjectResponse", "Project");
 export const ProjectsResponse = createResponse("ProjectsResponse", "Project", true, true);
 // prettier-ignore
 export const ProjectsByUsernameResponse = createResponse("ProjectsByUsernameResponse", "Project", true);
+// prettier-ignore
+export const SearchResponse = createResponse("SearchResponse", "SearchResult");
 // prettier-ignore
 export const ProfileInfoResponse = createResponse("ProfileInfoResponse", "ProfileInfo");
 // prettier-ignore

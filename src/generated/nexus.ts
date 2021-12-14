@@ -211,6 +211,15 @@ export interface NexusGenObjects {
     pageInfo?: NexusGenRootTypes['PageInfo'] | null; // PageInfo
   }
   Query: {};
+  SearchResponse: { // root type
+    code?: number | null; // Int
+    data?: NexusGenRootTypes['SearchResult'] | null; // SearchResult
+    message?: string | null; // String
+  }
+  SearchResult: { // root type
+    projectSearch: Array<NexusGenRootTypes['Project'] | null>; // [Project]!
+    userSearch: Array<NexusGenRootTypes['User'] | null>; // [User]!
+  }
   User: { // root type
     _count?: NexusGenRootTypes['UserCountPayload'] | null; // UserCountPayload
     createdAt: NexusGenScalars['DateTime']; // DateTime!
@@ -417,8 +426,18 @@ export interface NexusGenFieldTypes {
     projectPreview: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
     projects: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
     projectsByUsername: NexusGenRootTypes['ProjectsByUsernameResponse'] | null; // ProjectsByUsernameResponse
+    search: NexusGenRootTypes['SearchResponse'] | null; // SearchResponse
     user: NexusGenRootTypes['UserResponse'] | null; // UserResponse
     users: NexusGenRootTypes['UsersResponse'] | null; // UsersResponse
+  }
+  SearchResponse: { // field return type
+    code: number | null; // Int
+    data: NexusGenRootTypes['SearchResult'] | null; // SearchResult
+    message: string | null; // String
+  }
+  SearchResult: { // field return type
+    projectSearch: Array<NexusGenRootTypes['Project'] | null>; // [Project]!
+    userSearch: Array<NexusGenRootTypes['User'] | null>; // [User]!
   }
   User: { // field return type
     _count: NexusGenRootTypes['UserCountPayload'] | null; // UserCountPayload
@@ -624,8 +643,18 @@ export interface NexusGenFieldTypeNames {
     projectPreview: 'ProjectResponse'
     projects: 'ProjectsResponse'
     projectsByUsername: 'ProjectsByUsernameResponse'
+    search: 'SearchResponse'
     user: 'UserResponse'
     users: 'UsersResponse'
+  }
+  SearchResponse: { // field return type name
+    code: 'Int'
+    data: 'SearchResult'
+    message: 'String'
+  }
+  SearchResult: { // field return type name
+    projectSearch: 'Project'
+    userSearch: 'User'
   }
   User: { // field return type name
     _count: 'UserCountPayload'
@@ -783,6 +812,9 @@ export interface NexusGenArgTypes {
     }
     projectsByUsername: { // args
       username?: string | null; // String
+    }
+    search: { // args
+      term?: string | null; // String
     }
     user: { // args
       username?: string | null; // String

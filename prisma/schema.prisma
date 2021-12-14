@@ -4,7 +4,8 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 generator dbml {
@@ -42,7 +43,7 @@ model Profile {
 }
 
 model Project {
-  id           String    @id @default(cuid())
+  id           String         @id @default(cuid())
   title        String?
   editor_input Json?
   description  String?
@@ -50,11 +51,35 @@ model Project {
   views        View[]
   comments     Comment[]
   likes        Like[]
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
+  TagOnProject TagOnProject[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
 
   author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId Int
+
+}
+
+model Tag {
+  id           Int            @id @default(autoincrement())
+  title        String
+  TagOnProject TagOnProject[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+
+model TagOnProject {
+  project   Project @relation(fields: [projectId], references: [id])
+  projectId String
+
+  tag   Tag @relation(fields: [tagId], references: [id])
+  tagId Int
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  assignedBy String
+
+  @@id([projectId, tagId])
 }
 
 model View {
