@@ -51,35 +51,12 @@ model Project {
   views         View[]
   comments      Comment[]
   likes         Like[]
-  tagOnProjects TagOnProject[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
 
   author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
   authorId Int
 
-}
-
-model Tag {
-  id            Int            @id @default(autoincrement())
-  title         String
-  tagOnProjects TagOnProject[]
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
-}
-
-model TagOnProject {
-  project   Project @relation(fields: [projectId], references: [id])
-  projectId String
-
-  tag   Tag @relation(fields: [tagId], references: [id])
-  tagId Int
-
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  assignedBy String
-
-  @@id([projectId, tagId])
 }
 
 model View {

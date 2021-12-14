@@ -168,7 +168,6 @@ type Project {
   editor_input: JSONObject
   id: String!
   likes: [Like!]!
-  tagOnProjects: [TagOnProject!]!
   thumbnail: String
   title: String
   updatedAt: DateTime!
@@ -241,22 +240,6 @@ type SearchResult {
 enum SortOrder {
   asc
   desc
-}
-
-type Tag {
-  createdAt: DateTime!
-  id: Int!
-  tagOnProjects: [TagOnProject!]!
-  title: String!
-  updatedAt: DateTime!
-}
-
-type TagOnProject {
-  assignedBy: String!
-  createdAt: DateTime!
-  project: Project!
-  tag: Tag!
-  updatedAt: DateTime!
 }
 
 """The `Upload` scalar type represents a file upload."""
