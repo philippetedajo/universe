@@ -29,6 +29,13 @@ export const Search = extendType({
                 search: args.term,
               },
             },
+            include: {
+              _count: {
+                select: {
+                  followers: true,
+                },
+              },
+            },
           });
 
           return {
