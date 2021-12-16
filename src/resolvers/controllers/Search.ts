@@ -18,6 +18,14 @@ export const Search = extendType({
                 search: args.term,
               },
             },
+            include: {
+              _count: {
+                select: {
+                  likes: true,
+                  views: true,
+                },
+              },
+            },
           });
 
           const users = await context.prisma.user.findMany({
