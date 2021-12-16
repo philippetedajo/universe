@@ -430,6 +430,7 @@ export interface NexusGenFieldTypes {
     pageInfo: NexusGenRootTypes['PageInfo'] | null; // PageInfo
   }
   Query: { // field return type
+    hotUsers: NexusGenRootTypes['UsersResponse'] | null; // UsersResponse
     me: NexusGenRootTypes['UserResponse'] | null; // UserResponse
     myProjects: NexusGenRootTypes['ProjectsResponse'] | null; // ProjectsResponse
     project: NexusGenRootTypes['ProjectResponse'] | null; // ProjectResponse
@@ -652,6 +653,7 @@ export interface NexusGenFieldTypeNames {
     pageInfo: 'PageInfo'
   }
   Query: { // field return type name
+    hotUsers: 'UsersResponse'
     me: 'UserResponse'
     myProjects: 'ProjectsResponse'
     project: 'ProjectResponse'
@@ -809,6 +811,9 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    hotUsers: { // args
+      take?: number | null; // Int
+    }
     myProjects: { // args
       after?: string | null; // String
       first?: number | null; // Int

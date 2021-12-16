@@ -7,6 +7,37 @@ import { Response } from "../../_types/Response";
 export const UserQuery = extendType({
   type: "Query",
   definition(t) {
+    t.field("hotUsers", {
+      type: "UsersResponse",
+      args: { take: intArg() },
+      resolve: async (parent, args, context: Context) => {
+        const users = await context.prisma.user.findMany({
+          take: args.take,
+          orderBy: [
+            {
+              followers: {
+                _count: "desc",
+              },
+            },
+          ],
+          include: {
+            _count: {
+              select: {
+                following: true,
+                followers: true,
+              },
+            },
+          },
+        });
+
+        return {
+          code: Response.SUCCESS,
+          message: `Hot users found successfully !`,
+          data: users,
+        };
+      },
+    });
+
     t.field("users", {
       type: "UsersResponse",
       resolve: async (parent, args, context: Context) => {
