@@ -185,8 +185,10 @@ input ProjectCreateInput {
   title: String!
 }
 
-input ProjectOrderByInput {
-  createdAt: SortOrder!
+input ProjectOrderBy {
+  createdAtRank: SortOrder
+  likesRank: SortOrder
+  viewsRank: SortOrder
 }
 
 type ProjectResponse {
@@ -217,10 +219,10 @@ type ProjectsResponse {
 type Query {
   hotUsers(take: Int): UsersResponse
   me: UserResponse
-  myProjects(after: String, first: Int, orderBy: ProjectOrderByInput): ProjectsResponse
+  myProjects(after: String, first: Int, orderBy: ProjectOrderBy): ProjectsResponse
   project(id: String): ProjectResponse
   projectPreview(id: String): ProjectResponse
-  projects(after: String, first: Int, orderBy: ProjectOrderByInput): ProjectsResponse
+  projects(after: String, first: Int, orderBy: ProjectOrderBy): ProjectsResponse
   projectsByUsername(username: String): ProjectsByUsernameResponse
   search(term: String): SearchResponse
   user(username: String): UserResponse

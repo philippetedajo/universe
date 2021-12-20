@@ -56,9 +56,11 @@ export const LikeCreateInput = inputObjectType({
   },
 });
 
-export const ProjectOrderByInput = inputObjectType({
-  name: "ProjectOrderByInput",
+export const ProjectOrderBy = inputObjectType({
+  name: "ProjectOrderBy",
   definition(t) {
-    t.nonNull.field("createdAt", { type: "SortOrder" });
+    t.field("createdAtRank", { type: "SortOrder" });
+    t.field("viewsRank", { type: "SortOrder" });
+    t.field("likesRank", { type: "SortOrder" });
   },
 });

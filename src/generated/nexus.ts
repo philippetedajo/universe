@@ -62,8 +62,10 @@ export interface NexusGenInputs {
     id: number; // Int!
     title: string; // String!
   }
-  ProjectOrderByInput: { // input type
-    createdAt: NexusGenEnums['SortOrder']; // SortOrder!
+  ProjectOrderBy: { // input type
+    createdAtRank?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    likesRank?: NexusGenEnums['SortOrder'] | null; // SortOrder
+    viewsRank?: NexusGenEnums['SortOrder'] | null; // SortOrder
   }
   UserCreateInput: { // input type
     comments: NexusGenInputs['CommentCreateInput'][]; // [CommentCreateInput!]!
@@ -817,7 +819,7 @@ export interface NexusGenArgTypes {
     myProjects: { // args
       after?: string | null; // String
       first?: number | null; // Int
-      orderBy?: NexusGenInputs['ProjectOrderByInput'] | null; // ProjectOrderByInput
+      orderBy?: NexusGenInputs['ProjectOrderBy'] | null; // ProjectOrderBy
     }
     project: { // args
       id?: string | null; // String
@@ -828,7 +830,7 @@ export interface NexusGenArgTypes {
     projects: { // args
       after?: string | null; // String
       first?: number | null; // Int
-      orderBy?: NexusGenInputs['ProjectOrderByInput'] | null; // ProjectOrderByInput
+      orderBy?: NexusGenInputs['ProjectOrderBy'] | null; // ProjectOrderBy
     }
     projectsByUsername: { // args
       username?: string | null; // String

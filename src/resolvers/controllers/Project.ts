@@ -16,15 +16,25 @@ export const ProjectQuery = extendType({
         first: intArg(),
         after: stringArg(),
         orderBy: arg({
-          type: "ProjectOrderByInput",
+          type: "ProjectOrderBy",
         }),
       },
       resolve: async (parent, args, context: Context) => {
         try {
           return createPagination(context.prisma.project, args, "Project", {
-            orderBy: {
-              createdAt: args.orderBy.createdAt,
-            },
+            orderBy: [
+              {
+                views: {
+                  _count: args.orderBy.viewsRank,
+                },
+              },
+              {
+                likes: {
+                  _count: args.orderBy.likesRank,
+                },
+              },
+              { createdAt: args.orderBy.createdAtRank },
+            ],
             include: {
               _count: {
                 select: {
@@ -133,7 +143,7 @@ export const ProjectQuery = extendType({
         first: intArg(),
         after: stringArg(),
         orderBy: arg({
-          type: "ProjectOrderByInput",
+          type: "ProjectOrderBy",
         }),
       },
       resolve: async (parent, args, context: Context) => {
@@ -142,7 +152,7 @@ export const ProjectQuery = extendType({
           return createPagination(context.prisma.project, args, "Project", {
             where: { authorId: Number(userId) },
             orderBy: {
-              createdAt: args.orderBy.createdAt,
+              createdAt: args.orderBy.createdAtRank,
             },
             include: {
               _count: {
