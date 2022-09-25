@@ -1,6 +1,6 @@
-# Codetree Graphql Server
+# Custom Graphql Server
 
-Codetree graphql server built with Prisma, Nexus and GraphQL.
+ GraphQl server built with Prisma, Nexus and GraphQL.
 
 ## Core Packages
 
